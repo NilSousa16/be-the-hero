@@ -12,8 +12,8 @@ module.exports = {
         //const incidents = await connection('incidents').select('*'); // sem paginação
         const incidents = await connection('incidents')
             .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
-            //.limit(5) // limite total de resgistros retornados
-            //.offset((page - 1) * 5) // total de registros a serem pulados
+            .limit(5) // limite total de resgistros retornados
+            .offset((page - 1) * 5) // total de registros a serem pulados
             .select([
                 'incidents.*',
                 'ongs.name',
