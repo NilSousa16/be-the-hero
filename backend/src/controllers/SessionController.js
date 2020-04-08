@@ -7,7 +7,10 @@ module.exports = {
         const ong = await connection('ongs')
             .where('id', id)  
             .select('name')
-            .first(); //retorna valor simple e não uma lista
+            /**
+             * retorna valor simple e não uma lista
+             */
+            .first(); 
         
         if(!ong) {
             return response.status(400).json({ error: 'No ONG found with this ID' });
